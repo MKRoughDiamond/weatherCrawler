@@ -23,12 +23,13 @@ for i in range(start,end):
             except:
                 pass            
     for j in range(12):
-        f = open('./temp/data{}-{}.txt'.format(i,j+1), 'w')
+        f = open('./temp/data{}-{}.csv'.format(i,j+1), 'w')
         for k in tempList[j]:
             f.write(str(k)+'\n')
         f.close()
         temp = temp + tempList[j]
 
+        
 '''HUMIDITY'''
 
 for i in range(start,end):
@@ -46,15 +47,15 @@ for i in range(start,end):
             except:
                 pass            
     for j in range(12):
-        f = open('./hum/data{}-{}.txt'.format(i,j+1), 'w')
+        f = open('./hum/data{}-{}.csv'.format(i,j+1), 'w')
         for k in humList[j]:
             f.write(str(k)+'\n')
         f.close()
         hum = hum + humList[j]
 
 
-f = open('data.txt', 'w')
-for i in range(len(temp)):
-    f.write(str(temp[i])+' '+str(hum[i])+'\n')
+f = open('data.csv', 'w')
+for i in range(len(hum)):
+    f.write(str(temp[i])+','+str(hum[i])+'\n')
 f.close()
-print('Done')
+print('done')
